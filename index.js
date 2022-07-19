@@ -6,6 +6,7 @@ const { addUser, removeUser, getUser, getRoomUsers } = require("./entity");
 
 // Instances
 const app = express()
+const PORT=process.env.PORT ||8000
 const server = http.createServer(app);
 const io = socketio(server,{cors: { origin: '*' }})
 
@@ -67,4 +68,4 @@ io.on('connect',(socket) => {
 
 
 
-server.listen(8000,() => console.log('Server started on PORT'))
+server.listen(PORT,() => console.log('Server started on PORT'))
